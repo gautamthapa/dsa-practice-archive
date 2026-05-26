@@ -1,5 +1,9 @@
 package com.gautamthapa.leetcode;
 
+/*
+* Palindrome Integer via Reverse Number algorithm
+* if number is 121 then it is Palindrome
+* */
 public class PalindromeInteger {
     static void main() {
         int num = 232322432;
@@ -13,7 +17,7 @@ public class PalindromeInteger {
 
         int original = num;
 
-        int ans = 0, rem;
+        long ans = 0, rem;
         while (num != 0) {
             rem = num % 10;
             num = num / 10;
@@ -23,3 +27,10 @@ public class PalindromeInteger {
         return ans == original;
     }
 }
+/*
+* Time Complexity - O(log n)
+* Because every digit loop runs once
+*
+* Space Complexity - O(1)
+* Because fixed variable used num, ans, original, rem. and no extra array, collections, recursion, dynamic memory allocation
+* */
