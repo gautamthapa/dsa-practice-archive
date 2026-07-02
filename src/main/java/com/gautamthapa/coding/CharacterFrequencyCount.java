@@ -6,6 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CharacterFrequencyCount {
+
     static void main() {
         String str = "Gautamthapa";
 
