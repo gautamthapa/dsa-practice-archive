@@ -16,7 +16,7 @@ public class ReverseString {
 
         // Via Stream API
         String sApiReverse = IntStream.range(0, str.length())
-                .mapToObj(value -> String.valueOf(str.charAt(str.length() - 1 - value)))
+                .mapToObj(i -> String.valueOf(str.charAt(str.length() - 1 - i)))
                 .collect(Collectors.joining(""));
 
         System.out.println("sApiReverse : "+sApiReverse);

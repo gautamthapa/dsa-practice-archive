@@ -6,6 +6,8 @@ import com.gautamthapa.util.Util;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FindEmpGroupByDepartment {
@@ -44,5 +46,10 @@ public class FindEmpGroupByDepartment {
                 .findFirst().orElse(null);
         System.out.println("employeeSecondLargestSalary : " + employeeSecondLargestSalary);
 
+
+        // Employee with highest salary in each depart
+        Map<String, Employee> highestSalary = employees.stream()
+                .collect(Collectors.toMap(Employee::getDepartment, Function.identity(), BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary))));
+        System.out.println("highestSalary : " + highestSalary);
     }
 }

@@ -1,6 +1,8 @@
 package com.gautamthapa.coding;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class FindDuplicateInteger {
     static void main() {
@@ -16,7 +18,20 @@ public class FindDuplicateInteger {
         // Via Stream
         List<Integer> duplicates = findDuplicateInteger(inputArr);
 
-        System.out.println("duplicates : " + duplicates);
+        // Via Stream
+        List<Integer> duplicateNums = findDuplicateIntegerStreamAnotherWay(inputArr);
+
+        System.out.println("duplicates : " + duplicateNums);
+    }
+
+    private static List<Integer> findDuplicateIntegerStreamAnotherWay(int[] duplicates) {
+        return Arrays.stream(duplicates).boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(key -> key.getValue() > 1)
+                .map(n -> n.getKey())
+                .collect(Collectors.toList());
     }
 
     private static void findDuplicateIntegerViaNormal2(int[] inputArr) {

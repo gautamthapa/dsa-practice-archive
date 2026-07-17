@@ -1,26 +1,20 @@
 package com.gautamthapa.javapractice;
 
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Test {
     public static void main(String[] args) {
-//        for (int i = 0; i < 100; i++) {
-//            int sqrt = (int) Math.sqrt(i);
-//            System.out.println("Square: " + sqrt);
-//        }
-        someMethod(10);
+    /*
+    * please write a java code by using java 8 features Get top 3 highest numbers from the list
+    * */
+
+        List<Integer> inputs=List.of(1,7,9,1,5,6);
+
+        Collections.sort(inputs);
+        // IntStream.range(0,2).forEach();
+        // inputs.stream().collect(Collectors.)
     }
 
-    public static int someMethod(int i) {
-        try {
-            //some statement
-            System.out.println("return 1");
-            return 1;
-        } catch (Exception e) {
-            //some statement
-            System.out.println("return 999");
-            return 999;
-        } finally {
-            //finally block statements
-            System.out.println("finally block");
-        }
-    }
 }
